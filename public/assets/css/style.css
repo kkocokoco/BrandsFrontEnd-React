@@ -1,0 +1,601 @@
+/* Developed by Tsundzukani Mabunda */
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    
+    margin: 0; /* Remove default margin */
+}
+
+.container {
+    width: 100%; /* Full width */
+    max-width: 1440px; /* Limit the maximum width */
+    height: 80px;
+    background-color: #70259B;
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.inner-container {
+    max-width: 1440px;
+    border: 1px solid #ccc;
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 50px;
+}
+
+.section {
+    max-width: 1440px;
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Rows - You can add margin or padding to create spacing between rows */
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping for smaller screens */
+    justify-content: space-between; /* Create space between columns */
+    margin-bottom: 20px; /* Add margin to create space between rows */
+}
+
+/* Columns - Adjust width or flex property as needed */
+.col {
+    flex: 1; /* Columns take equal width */
+    padding: 10px;
+    text-align: left;
+}
+
+.custom-title {
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default list padding */
+}
+
+.custom-title p {
+    font-size: 16px;
+    position: relative;
+    margin-left: 0px;
+    color: #000;
+    padding-left: 30px; /* Spacing between bullet and text */
+    margin-bottom: 10px; /* Spacing between list items */
+}
+
+.custom-title p::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px; /* Adjust the width of the line */
+    margin-top: 10px;
+    height: 15%; /* Make the line full height of the list item */
+    background-color: #BD56BA; /* Line color */
+}
+
+@font-face {
+    font-family: 'Inter'; /* Font name */
+    src: url('../fonts/Inter.ttf') format('truetype'); /* Path to the font file */
+    font-weight: normal; /* Font weight (e.g., normal, bold) */
+    font-style: normal; /* Font style (e.g., normal, italic) */
+}
+
+.btn-primary {
+    background-color: #70259B;
+    border-radius: 20px;
+    font-size: 12px;
+    border: none; /* Remove border */
+    border-radius: 50px; /* Set the border-radius to 50% for a round shape */
+    padding: 10px 20px; /* Add padding for content inside the button */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #e65500; /* Change background color on hover */
+    transform: scale(1.1); /* Add a scale effect on hover */
+}
+
+/*--------------------------------------------------------------
+# Menu Items
+--------------------------------------------------------------*/
+
+.menu {
+    background-color: #70259B;
+    color: #fff;
+    display: flex;
+    justify-content: space-between; /* Space between logo and menu items */
+    align-items: center;
+    padding: 8px 20px; /* Vertical and horizontal padding */
+    max-width: 1440px; /* Limit the maximum width */
+    margin: 0 auto; /* Center the menu horizontally */
+}
+
+.logo img {
+    max-height: 40px; /* Adjust the max-height as needed */
+    margin-right: 20px; /* Add spacing between the logo and menu items */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+}
+
+.menu-list {
+    list-style-type: none;
+    display: flex;
+}
+
+.menu-list li {
+    margin-right: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.menu-list li:last-child {
+    margin-right: 0;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.menu-list a:hover {
+    background-color: #ff6600;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.talk-button {
+    margin-left: auto; /* Move to the right end */
+}
+
+.button a {
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+@media (max-width: 768px) {
+    .menu-list {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+	.content-text {
+		font-size: 30px!important;
+		font-weight: bold;
+		max-width: 1440px;
+		color: #000;
+		margin-left: 0px;
+		transition: background-color 0.3s ease, transform 0.3s ease;
+	}
+
+	.hero-content {
+		position: absolute;
+		left: 20px; /* Adjust the left position as needed */
+		top: 10%; /* Align vertically in the middle */
+		transform: translateY(-12%)!important;
+	}
+	.hero-content h1,
+	.hero-content p,
+	.hero-content input {
+		color: #fff;
+		margin-left: 80px;
+		max-width: 80%!important;
+	}
+
+	.hero-content p {
+    font-size: 10px !important;
+	}
+
+	.hero-content h1 {
+		margin-left: -20px;
+		margin-bottom: 0px;
+		font-size: 16px!important;
+		transition: opacity 0.3s ease-in-out;
+	}
+    .menu-list.active {
+        display: flex;
+    }
+
+    .menu-list li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+	
+}
+
+/* Define styles for the mobile menu */
+.mobile-menu {
+    display: none; /* Hide the mobile menu by default */
+    background-color: #70259B; /* Background color */
+    position: absolute;
+    top: 60px; /* Adjust the top position to match your header */
+    right: 0;
+    left: 0;
+    z-index: 999; /* Adjust the z-index as needed */
+	max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+
+
+.mobile-menu.active {
+  max-height: 300px; /* Adjust the max height as needed */
+}
+
+/* Style the mobile menu list */
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the mobile menu items */
+.mobile-menu ul li {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* Style the mobile menu links */
+.mobile-menu ul li a {
+    color: #fff; /* Text color */
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Change background color on hover */
+.mobile-menu ul li a:hover {
+     background-color: #ff6600;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+/* Media query for screens with a maximum width of 768px (adjust as needed) */
+@media (max-width: 768px) {
+    .mobile-menu {
+        display: block; /* Display the mobile menu */
+    }
+	
+	.hero-content p {
+    font-size: 12px;
+	}
+
+	.hero-content h1 {
+		margin-left: -20px;
+		margin-bottom: 0px;
+		font-size: 20px;
+		transition: opacity 0.3s ease-in-out;
+	}
+	
+
+}
+
+
+/*--------------------------------------------------------------
+# Hero Image
+--------------------------------------------------------------*/
+
+.hero-image {
+    width: 100%;
+    max-width: 1440px; /* Limit the maximum width */
+    height: auto; /* Let the height adjust to maintain aspect ratio */
+    position: relative;
+    overflow: hidden;
+	
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.overlay-hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0); /* Semi-transparent background for text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    padding: 50px;
+    transition: opacity 0.3s ease;
+}
+
+.hero-content {
+    position: absolute;
+    left: 20px; /* Adjust the left position as needed */
+    top: 40%; /* Align vertically in the middle */
+    transform: translateX(-25%);
+}
+
+.hero-content h1,
+.hero-content p,
+.hero-content input {
+    color: #fff;
+    margin-left: 80px;
+    max-width: 38%;
+}
+
+.hero-content p {
+    font-size: 18px;
+}
+
+.hero-content h1 {
+    margin-left: -20px;
+    margin-bottom: 0px;
+    font-size: 40px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hero-content h1:hover {
+    font-size: 45px;
+    color: #70259B;
+}
+
+.hero-content p:hover {
+    font-size: 25px;
+}
+
+.hero-image:hover .overlay-hero {
+    opacity: 2;
+}
+
+.hero-image:hover {
+    height: auto;
+}
+
+/*--------------------------------------------------------------
+# What we do area
+--------------------------------------------------------------*/
+
+.content-text {
+    font-size: 50px;
+    font-weight: bold;
+    max-width: 1440px;
+    color: #000;
+    margin-left: 0px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.content-row {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping for smaller screens */
+    justify-content: space-between; /* Create space between columns */
+    margin-bottom: 20px; /* Add margin to create space between rows */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.content-row:hover {
+    color: #430964; /* Background color on hover */
+    transform: scale(1.05); /* Scale up the container on hover */
+}
+
+.about-card {
+    flex: 1; /* Columns take equal width */
+    padding: 10px;
+    text-align: left;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.about-card:hover {
+    background-color: #E2E2F1;
+    border-radius: 30px;
+    padding: 40px;
+}
+
+.col-heading {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 290px;
+    padding-top: 10px;
+}
+
+.col-paragraph {
+    font-size: 20px;
+    margin: 0px;
+    margin-top: 10px;
+    max-width: 290px;
+    color: #000;
+}
+
+/*--------------------------------------------------------------
+# Case studies section
+--------------------------------------------------------------*/
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 1s ease;
+    position: relative;
+}
+
+.slide {
+    width: 500px;
+    height: 350px;
+    flex: 0 0 auto;
+    position: relative;
+    transition: transform 0.5s ease;
+    overflow: hidden;
+}
+.slide.active {
+  opacity: 1; /* Make the active slide fully visible */
+  transition: opacity 0.5s ease; /* Add a smooth transition effect */
+}
+.slide img {
+    max-width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.overlay-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    padding: 50px;
+    transition: opacity 0.3s ease;
+}
+
+.slide:hover .overlay-slide {
+    opacity: 2;
+}
+
+.slider-heading {
+    color: #fff;
+    margin: 0;
+    padding: 10px;
+    opacity: 1;
+    text-align: center;
+}
+
+.slider-paragraph {
+    color: #fff;
+    margin: 0;
+    padding: 10px;
+    margin: 20px;
+    opacity: 1;
+    text-align: center;
+}
+
+.slider-heading:hover {
+    font-size: 34px;
+}
+
+.slider-paragraph:hover {
+    font-size: 20px;
+}
+
+/*--------------------------------------------------------------
+# You'll be in good company section
+--------------------------------------------------------------*/
+
+.brand-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.svg-image {
+    width: 135px;
+    height: 90px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: 10px; /* Spacing between columns */
+}
+
+.brand-col {
+    flex: 1; /* Columns take equal width */
+    padding: 10px;
+    text-align: left;
+    height: 150px;
+    width: 250px;
+}
+
+.brand-col:hover {
+    background-color: #E2E2F1;
+    border-radius: 30px;
+    padding: 40px;
+}
+
+/*--------------------------------------------------------------
+# Footer Section
+--------------------------------------------------------------*/
+
+.footer-section {
+    background-color: #430964;
+    padding: 50px;
+	width: 100%;
+	margin-left: -50px;
+}
+
+.contact-info {
+    color: #fff;
+    margin-left: 50%;
+}
+
+.footer-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.footer-links ul li:last-child {
+    margin-right: 0;
+}
+
+.text-color-white {
+    color: #fff !important;
+}
+
+.footer-links ul li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-links ul li a:hover {
+    background-color: #ff6600;
+    padding: 10px;
+    width: 150px;
+    border-radius: 20px;
+}
